@@ -4,8 +4,6 @@ const request = require("request");
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 const https = require('https');
 
-// d773861aa86131d294dfba1b172f36a1-us11   015d128de7  us11 015d128de7
-
 const port = 3000;
 
 const app = express();
@@ -13,10 +11,14 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 
+const mailchimpApiKey = '';
+const serverName = '';
+const listId = '';
+
 // set mailchimp authentication
 mailchimp.setConfig({
-    apiKey: '',
-    server: 'us11',
+    apiKey: mailchimpApiKey,
+    server: serverName,
 });
 
 app.get('/', function(req, res) {
@@ -41,10 +43,10 @@ app.post('/', function(req, res) {
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us11.api.mailchimp.com/3.0/lists/015d128de7";
+    const url = "https://us11.api.mailchimp.com/3.0/lists/" + listId;
     const options = {
         method: 'POST',
-        auth: 'kavishkamk:'
+        auth: 'kavishkamk:' + mailchimpApiKey
     }
 
     const requestt = https.request(url, options, function(result) {
