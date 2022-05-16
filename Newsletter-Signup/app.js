@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // set mailchimp authentication
 mailchimp.setConfig({
-    apiKey: 'd773861aa86131d294dfba1b172f36a1-us11',
+    apiKey: '',
     server: 'us11',
 });
 
@@ -44,7 +44,7 @@ app.post('/', function(req, res) {
     const url = "https://us11.api.mailchimp.com/3.0/lists/015d128de7";
     const options = {
         method: 'POST',
-        auth: 'kavishkamk:d773861aa86131d294dfba1b172f36a1-us11'
+        auth: 'kavishkamk:'
     }
 
     const requestt = https.request(url, options, function(result) {
