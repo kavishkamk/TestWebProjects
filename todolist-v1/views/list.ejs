@@ -4,16 +4,19 @@
     </div>
     <div class="box">
         <ul>
-            <% for (var i = 0 ; i < items.length; i++) { %>
-                <div class="item">
-                    <input type="checkbox">
-                    <p><%= items[i] %></p>
-                </div>   
-            <% } %>
-            
+            <% items.forEach(function(element) { %>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="hidden" name="listName" value="<%=listTitle%>">
+                        <input type="hidden" name="dateFree" value="<%=dateFree%>">
+                        <input type="checkbox" name="checkBox" value="<%= element._id%>" onChange="this.form.submit()">
+                        <p><%= element.name %></p>
+                    </div> 
+                </form>
+            <% }); %>
         </ul>
 
-        <form action="/" method="post" class="item">
+        <form action="<%=routpath%>" method="post" class="item">
             <input type="text" name="newItem" id="" placeholder="New Item" autocomplete="off">
             <button type="submit" name="list" value=<%= listTitle %>>+</button>
         </form>
