@@ -7,3 +7,6 @@
 
 - Used mongoDB to handle database
     - used mongoose
+
+- hosted in Heroku with mongoDb Atles
+    - https://desolate-woodland-44383.herokuapp.com/
