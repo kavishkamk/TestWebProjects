@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- Load the properties file -->
+	<context:property-placeholder location="classpath:sport.properties" />
+	
+    <!-- bean definitions here -->
+    
+    <bean 
+    	id="fortuneService" 
+    	class="io.github.kavishkamk.springDemoOne.HappyFortuneService"
+    >
+    </bean>
+    
+    <bean 
+    	id="myCoach" 
+    	class="io.github.kavishkamk.springDemoOne.BaseballCoach"
+    >
+    	<!-- set up constructor injection -->
+    	<constructor-arg  ref="fortuneService" />
+    </bean>
+    
+    <bean
+    	id="myCricketCoach"
+    	class="io.github.kavishkamk.springDemoOne.CricketCoach"
+    >
+    	<property name="fortuneService" ref="fortuneService" />
+    	<property name="email" value="${foo.email}" />
+    	<property name="teamName" value="${foo.team}" />
+    </bean>
+
+</beans>
