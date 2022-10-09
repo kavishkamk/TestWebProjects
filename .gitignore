@@ -134,3 +134,4 @@ dist
 
 # generated files
 src/declarations/
+hello/node_modules/
