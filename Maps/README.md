@@ -4,4 +4,4 @@
 - [faker](https://fakerjs.dev/) used to genarate fake data
 - [parcel](https://parceljs.org/) used to auto compilation
 
-<img src="" alt="Alt text" title="application">
+<img src="https://github.com/kavishkamk/TestWebProjects/blob/main/Maps/images/map.png" alt="Alt text" title="application">
